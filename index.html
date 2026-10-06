@@ -17,14 +17,16 @@ body {
 }
 
 #tap {
-    font-size: 22px;
+    font-size: 32px;
     color: #ff5c9a;
     cursor: pointer;
 }
 
 #message {
     display: none;
-    font-size: 30px;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.4;
     color: #ff4f91;
     animation: pop 1s ease;
     z-index: 10;
@@ -32,16 +34,16 @@ body {
 
 .heart {
     position: fixed;
-    top: -30px;
-    color: #ff6fa5;
-    font-size: 18px;
+    top: -50px;
+    font-size: 35px;
     animation: fall linear forwards;
     pointer-events: none;
+    z-index: 5;
 }
 
 @keyframes fall {
     from {
-        transform: translateY(-30px) rotate(0deg);
+        transform: translateY(-50px) rotate(0deg);
         opacity: 1;
     }
 
@@ -77,14 +79,10 @@ body {
 <script>
 
 document.getElementById("tap").onclick = function() {
-
     this.style.display = "none";
-
     document.getElementById("message").style.display = "block";
-
 };
 
-/* Falling hearts */
 function createHeart() {
 
     const heart = document.createElement("div");
@@ -93,8 +91,12 @@ function createHeart() {
     heart.innerHTML = "💗";
 
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (12 + Math.random() * 15) + "px";
-    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+    heart.style.fontSize =
+        (28 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
 
@@ -103,7 +105,7 @@ function createHeart() {
     }, 7000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 250);
 
 </script>
 
